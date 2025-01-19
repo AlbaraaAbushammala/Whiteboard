@@ -1,0 +1,8 @@
+#whiteboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #9da2a6;
+  }
