@@ -1,6 +1,11 @@
 export const main = {
     tag: "div", id: "", inner: [
-        { tag: "h1", id: "title", class: "title", inner: "%title%" },
+        {
+            tag: "div", class: "navBarContainer", inner: [
+                { tag: "img", class: "logo", src: "%logo%" },
+                { tag: "h1", id: "title", class: "title", inner: "%title%" },
+            ]
+        },
         {
             tag: "div", id: "whiteboard-container", inner: [
                 {

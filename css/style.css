@@ -8,8 +8,18 @@
   --main-transition: 0.3s;
 }
 
+.navBarContainer{
+  display: flex;
+  align-items: center;
+}
+
 .title {
   text-align: center;
+  margin: auto;
+}
+
+.logo{
+  height: 100px;
 }
 
 #whiteboard-container {
@@ -18,7 +28,7 @@
   align-items: center;
   gap: 20px;
   padding: 15px;
-  background-color: #eeeff0;
+  background-color: #f3f3f3;
 }
 
 #whiteboard {
