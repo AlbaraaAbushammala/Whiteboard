@@ -48,7 +48,8 @@ ccm.files["ccm.whiteboard.js"] = {
                 markerTool: () => setTool("marker"),  
                 highlighterTool: () => setTool("highlighter"),  
                 eraserTool: () => setTool("eraser"),  
-                selectTool: () => setTool("select"), 
+                clearOneElement: () => setTool("clearOneElement"),
+                selectTool: () => setTool("select"),
                 changeColor: (e) => { self.currentColor = e.target.value; setTool(self.currentTool); },  
                 increaseSize: () => { if (self.currentSize < 50) { self.currentSize++; updateSize(); } },  
                 decreaseSize: () => { if (self.currentSize > 1) { self.currentSize--; updateSize(); } },  
@@ -113,11 +114,11 @@ ccm.files["ccm.whiteboard.js"] = {
         function onDown(e) {
             const x = e.offsetX, y = e.offsetY;
 
-            // if (self.currentTool === "eraser") { لمااحط حذف للعنصر كامل
-            //     drawing = true;
-            //     eraseAt(x, y);
-            //     return;
-            // }
+            if (self.currentTool === "clearOneElement") { //  لمااحط حذف للعنصر كامل
+                drawing = true;
+                eraseAt(x, y);
+                return;
+            }
             
             if (self.currentTool === "select") {
                 selected = null;
@@ -181,10 +182,10 @@ ccm.files["ccm.whiteboard.js"] = {
             const x = e.offsetX, y = e.offsetY;
             if (!drawing) return;
 
-            // if (self.currentTool === "eraser") { لما نحط حذف لكامل العنص
-            //     eraseAt(x, y);
-            //     return;
-            // }
+            if (self.currentTool === "clearOneElement") { // لما نحط حذف لكامل العنص
+                eraseAt(x, y);
+                return;
+            }
 
             if (self.currentTool === "select" && selected && dragStart) {
                 const dx = x - dragStart.x, dy = y - dragStart.y;
@@ -273,24 +274,21 @@ ccm.files["ccm.whiteboard.js"] = {
             return p;  // Gibt den Path zurück
         }
 
-        // function eraseAt(x, y) { 
-        //     // Entfernt Strokes, die im aktuellen Pfad enthalten sind
-        //     for (let i = strokes.length - 1; i >= 0; i--) {
-        //         const st = strokes[i];
-        //         if (ctx.isPointInStroke(st.path, x, y)) {
-        //             strokes.splice(i, 1);
-        //         }
-        //     }
-        //     redraw(); // neu zeichnen ohne gelöschte Elemente
-        // }  لما احط حذف للعنصر كامل
+        function eraseAt(x, y) { 
+            // Entfernt Strokes, die im aktuellen Pfad enthalten sind
+            for (let i = strokes.length - 1; i >= 0; i--) {
+                const st = strokes[i];
+                if (ctx.isPointInStroke(st.path, x, y)) {
+                    strokes.splice(i, 1);
+                }
+            }
+            redraw(); // neu zeichnen ohne gelöschte Elemente
+        } 
+    
     }
 
 };
 
-
-// التعديل علي عنصر واضافه نص عليه
-// let mainTitle = this.element.querySelector("#title");
-// mainTitle.textContent = this.title;
 
 
 

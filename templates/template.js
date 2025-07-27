@@ -22,6 +22,7 @@ export const main = {
                                 { tag: "button", class: "tool ", onclick: "%decreaseSize%", inner: "−" },
                                 { tag: "p", class: "size-display", id: "size-display", inner: "%currentSize%" },
                                 { tag: "button", class: "tool ", onclick: "%increaseSize%", inner: "+" },
+                                { tag: "button", class: "tool ", id: "clearOneElement",  onclick: "%clearOneElement%", inner: "🧼" },
                             ]
                         },
                         {
