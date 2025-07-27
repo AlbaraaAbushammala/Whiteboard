@@ -16,13 +16,13 @@ export const main = {
                                 { tag: "button", class: "tool", id: "marker", onclick: "%markerTool%", inner: "🖊️" },
                                 { tag: "button", class: "tool", id: "highlighter", onclick: "%highlighterTool%", inner: "🖍️" },
                                 { tag: "button", class: "tool", id: "eraser", onclick: "%eraserTool%", inner: "🧽" },
+                                { tag: "button", class: "tool ", id: "clearOneElement", onclick: "%clearOneElement%", inner: "🧼" },
                                 { tag: "button", class: "tool", id: "text", onclick: "%textTool%", inner: "🅣" },
                                 { tag: "button", class: "tool", id: "select", onclick: "%selectTool%", inner: "⛶" },
                                 { tag: "input", type: "color", id: "color-picker", onchange: "%changeColor%", value: "%currentColor%" },
                                 { tag: "button", class: "tool ", onclick: "%decreaseSize%", inner: "−" },
                                 { tag: "p", class: "size-display", id: "size-display", inner: "%currentSize%" },
                                 { tag: "button", class: "tool ", onclick: "%increaseSize%", inner: "+" },
-                                { tag: "button", class: "tool ", id: "clearOneElement",  onclick: "%clearOneElement%", inner: "🧼" },
                             ]
                         },
                         {
